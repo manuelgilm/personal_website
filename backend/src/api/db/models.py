@@ -17,10 +17,10 @@ class Credential(SQLModel, table=True):
     updated_at: datetime = Field(default=datetime.now())
     organization: str
 
-def SimpleArticle(SQLModel, table=True):
-    article_id: uuid.UUID = Field(default=uuid.uuid4(), primary_key=True, index=True)
+class SimpleBlogPost(SQLModel, table=True):
+    blog_id: uuid.UUID = Field(default=uuid.uuid4(), primary_key=True, index=True)
     title: str
     content: str
+    tags: Optional[List[str]] = None
     created_at: datetime = Field(default=datetime.now())
     updated_at: datetime = Field(default=datetime.now())
-    tags: Optional[List] = None
