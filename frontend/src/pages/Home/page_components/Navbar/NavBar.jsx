@@ -14,7 +14,7 @@ function Navbar() {
         <li><a href="#articles">Blog</a></li>
         <li><a href="#certifications">Certificates</a></li>
       </ul>
-    </nav>
+    </nav> 
   );
 }
 export default Navbar;
