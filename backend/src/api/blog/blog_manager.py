@@ -1,26 +1,29 @@
-from src.api.articles.schemas import CreateSimpleArticleSchema
-from src.api.db.models import SimpleArticle
+from src.api.blog.schemas import CreateSimpleBlogPost
+from src.api.db.models import SimpleBlogPost
 from sqlmodel import Session
+from sqlmodel import select 
+from uuid import UUID
 
-class ArticleManager():
-    
 
-    def create_simple_article(self, article_data: CreateSimpleArticleSchema, session: Session):
-        article = SimpleArticle(**article_data.dict())
-        
-        session.add(article)
+class BlogManager:
+
+    def create_simple_article(
+        self, blog_data: CreateSimpleBlogPost, session: Session
+    ) -> SimpleBlogPost:
+        blog_data_dict = blog_data.model_dump()
+        blog_post = SimpleBlogPost(**blog_data_dict)
+
+        session.add(blog_post)
         session.commit()
-        session.refresh(article)
-        return article
-    
-    def get_all_articles(self, session: Session):
-        pass 
-    
-    def get_article_by_id(self, article_id: int, session: Session):
-        pass 
+        session.refresh(blog_post)
+        return blog_post
 
-    def update_article(self, article_id: int, session: Session):
-        pass
+    def get_post_by_id(self, post_id: UUID, session: Session) -> SimpleBlogPost:
+        statement = select(SimpleBlogPost).where(SimpleBlogPost.post_id == post_id)
+        blog_post = session.exec(statement).first()
+        return blog_post
 
-    def delete_article(self, article_id: int, session: Session):
-        pass
+    def get_all_posts(self, session: Session) -> SimpleBlogPost:
+        statement = select(SimpleBlogPost)
+        blog_posts = session.exec(statement).all()
+        return blog_posts

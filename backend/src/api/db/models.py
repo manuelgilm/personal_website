@@ -17,8 +17,9 @@ class Credential(SQLModel, table=True):
     updated_at: datetime = Field(default=datetime.now())
     organization: str
 
+
 class SimpleBlogPost(SQLModel, table=True):
-    blog_id: uuid.UUID = Field(default=uuid.uuid4(), primary_key=True, index=True)
+    post_id: uuid.UUID = Field(default=uuid.uuid4(), primary_key=True, index=True)
     title: str
     content: str
     tags: Optional[List[str]] = None
