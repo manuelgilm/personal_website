@@ -10,11 +10,9 @@ function Home() {
   return (
     <>    
         <Navbar />
-
         <div className="home-container">
             <Header />
             <About />
-            <Projects />
             <Resume />
             <Contact />
 

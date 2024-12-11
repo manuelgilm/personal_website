@@ -16,8 +16,8 @@ function Resume() {
           <h3>Professional Experience</h3>
           <div className="experience-item">
             <h4>ML & MLOps Engineer</h4>
-            <h5>Tech Company Inc.</h5>
-            <span>June 2020 - Present</span>
+            <h5>EPAM Systems</h5>
+            <span>April 2022 - Present</span>
             <p>
               - Designed and implemented scalable MLOps pipelines for deploying machine learning models.
               <br />
