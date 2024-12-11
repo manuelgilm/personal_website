@@ -11,9 +11,9 @@ function Home() {
     <>    
         <Navbar />
         <div className="home-container">
-            <Header />
+            {/* <Header /> */}
             <About />
-            <Resume />
+            {/* <Resume /> */}
             <Contact />
 
         </div>
