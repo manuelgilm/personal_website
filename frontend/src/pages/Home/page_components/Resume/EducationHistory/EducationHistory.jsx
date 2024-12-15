@@ -2,11 +2,12 @@
 import "./EducationHistory.css";
 const educationList = [
     {
-        degree: "Bachelor of Science in Computer Science",
-        institution: "University of Technology",
-        dateRange: "2016 - 2020"
+        degree: "Bachelor of Electrical Engineering",
+        institution: "University of the Andes (Venezuela)",
+        dateRange: "2011 - 2019"
     }
 ]
+
 function EducationItem(degree, institution, dateRange) {
     return (
         <div className="education-item">
