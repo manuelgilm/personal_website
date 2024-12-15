@@ -6,19 +6,20 @@ const experienceList = [
         company: "EPAM Systems",
         dateRange: "April 2022 - Present",
         tasksList: [
-            "Designed and implemented scalable MLOps pipelines for deploying machine learning models.",
-            "Automated workflows using Kubernetes and Docker, improving deployment efficiency by 40%.",
-            "Collaborated with data scientists to ensure seamless integration of models into production systems."
-        ]
+            "Designed an object-oriented ML project blueprint for the entire ML lifecycle, utilizing tools such as the Databricks Stack (Pyspark, feature store, mlflow), Poetry, and dbx.",
+            "Developed Continuous Integration (CI) Pipelines in Azure Dev Ops and Continuous Delivery (CD) pipelines in Azure Data Factory. Tooling: Azure Dev Ops, Azure Data Factory.",
+            "Developed a Monitoring System utilizing the New Relic platform. This system monitors the status of ML projects executed on Databricks, providing visibility into the jobs running on the platform.",
+            "Built a Model Catalog for Databricks and Google Cloud Platform using IBM Factsheets, integrating Cloud Functions, Vertex AI, MLflow webhooks, and Databricks Jobs."
+        ],
     },
     {
-        position: "Data Analyst",
-        company: "Data Science Co.",
+        position: "Data Scientist",
+        company: "DCKStudios",
         dateRange: "July 2020 - March 2022",
         tasksList: [
-            "Analyzed and visualized data to identify trends and patterns.",
-            "Developed machine learning models to predict customer behavior.",
-            "Generated reports and dashboards to communicate insights to stakeholders."
+            "Using data and process mining, we obtain graphic models for process flow, guiding future organizational decisions",
+            "Developed AI applications enhancing user experience, incorporating speech-to-text, adult content detection, and brand and emotion recognition. Tooling: Azure Custom Vision, OpenCV, image classification, Object Detection, Image processing.",
+            "Detecting water leaks in distribution networks using machine learning and hydraulic simulations. Tooling: Gym OpenAI, Reinforcement Learning"
         ]
     }
 ]

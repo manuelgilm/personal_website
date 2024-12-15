@@ -13,7 +13,7 @@ function Home() {
         <div className="home-container">
             {/* <Header /> */}
             <About />
-            {/* <Resume /> */}
+            <Resume />
             <Contact />
 
         </div>

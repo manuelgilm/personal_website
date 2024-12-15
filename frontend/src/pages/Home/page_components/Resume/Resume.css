@@ -9,9 +9,9 @@
   margin-bottom: 3rem;
   position: relative;
   display: inline-block;
-  color: #ff5733;
+  color: #000000;
 }
-
+/* 
 .resume-section h2::after {
   content: '';
   width: 50px;
@@ -21,7 +21,7 @@
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
-}
+} */
 
 .resume-content {
   display: flex;
@@ -36,7 +36,7 @@
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
   color: #fff;
-  background-color: #ff5733;
+  background-color: #35538b;
   border: none;
   border-radius: 5px;
   text-decoration: none;
@@ -51,9 +51,9 @@
 .collapse-button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
-  color: #ff5733;
+  color: #35538b;
   background-color: transparent;
-  border: 2px solid #ff5733;
+  border: 2px solid #35538b;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, color 0.3s;
