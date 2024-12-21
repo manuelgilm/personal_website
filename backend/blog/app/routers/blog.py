@@ -17,17 +17,15 @@ blog_router = APIRouter()
 def get_blogs(
     session: Session = Depends(get_session), manager: BlogManager = Depends(BlogManager)
 ):
-
-    blogs = session.query(SimpleBlogPost).all()
-    return blogs
-
+    blog_post_list = manager.get_all_blog_posts(session)
+    return blog_post_list
 
 # create blog post
-@blog_router.post(f"/create/{CreateSimpleBlogPost}")
+@blog_router.post(f"/create/")
 def create_simple_blog_post(
-    blog_data: CreateSimpleBlogPost, session: Session = Depends(get_session)
+    blog_data: CreateSimpleBlogPost, session: Session = Depends(get_session), manager: BlogManager = Depends(BlogManager)
 ) -> SimpleBlogPost:
-    blog_post = BlogManager.create_simple_article(blog_data, session)
+    blog_post = manager.create_simple_article(blog_data, session)
     return blog_post
 
 

@@ -1,6 +1,6 @@
 from app.schemas import CreateSimpleBlogPost
+from app.schemas import ListSimpleBlogPost
 from app.db.models import SimpleBlogPost
-
 
 from sqlmodel import Session
 from sqlmodel import select 
@@ -9,6 +9,17 @@ from uuid import UUID
 
 class BlogManager:
 
+    def get_all_blog_posts(self, session:Session) -> ListSimpleBlogPost:
+        """
+        List all blog posts.
+
+        :param session: Session object
+        :return: ListSimpleBlogPost object
+        """
+        statement = select(SimpleBlogPost)
+        blog_posts = session.exec(statement).all()
+        return blog_posts
+    
     def create_simple_article(
         self, blog_data: CreateSimpleBlogPost, session: Session
     ) -> SimpleBlogPost:
@@ -19,6 +30,8 @@ class BlogManager:
         session.commit()
         session.refresh(blog_post)
         return blog_post
+    
+
 
     def get_post_by_id(self, post_id: UUID, session: Session) -> SimpleBlogPost:
         statement = select(SimpleBlogPost).where(SimpleBlogPost.post_id == post_id)
