@@ -9,5 +9,6 @@ class CreateSimpleBlogPost(BaseModel):
     content: str
     tags: Optional[List[str]] = None
 
+
 class ListSimpleBlogPost(BaseModel):
     blog_posts: List[CreateSimpleBlogPost]
