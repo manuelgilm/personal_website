@@ -40,3 +40,10 @@ class BlogManager:
         statement = select(SimpleBlogPost)
         blog_posts = session.exec(statement).all()
         return blog_posts
+
+    def delete_post(self, post_id: UUID, session: Session) -> SimpleBlogPost:
+        statement = select(SimpleBlogPost).where(SimpleBlogPost.post_id == post_id)
+        blog_post = session.exec(statement).first()
+        session.delete(blog_post)
+        session.commit()
+        return blog_post

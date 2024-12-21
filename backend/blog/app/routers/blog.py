@@ -5,7 +5,8 @@ from app.db.db import get_session
 from app.schemas import CreateSimpleBlogPost
 from app.db.models import SimpleBlogPost
 from app.resources import BlogManager
-
+from fastapi import HTTPException
+from fastapi import status
 
 from uuid import UUID
 
@@ -21,7 +22,7 @@ def get_blogs(
 
 
 # create blog post
-@blog_router.post(f"/create/")
+@blog_router.post(f"/create/", status_code=status.HTTP_201_CREATED)
 def create_simple_blog_post(
     blog_data: CreateSimpleBlogPost,
     session: Session = Depends(get_session),
@@ -39,13 +40,25 @@ async def get_blog_post_by_id(
     manager: BlogManager = Depends(BlogManager),
 ) -> SimpleBlogPost:
     blog_post = manager.get_post_by_id(post_id, session)
+    if blog_post is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Post not found"
+        )
     return blog_post
 
 
-# get all posts
-@blog_router.get("/get_all")
-async def get_all_posts(
-    session: Session = Depends(get_session), manager: BlogManager = Depends(BlogManager)
+# delete a post
+@blog_router.delete("/delete/{post_id}")
+async def delete_blog_post_by_id(
+    post_id: UUID,
+    session: Session = Depends(get_session),
+    manager: BlogManager = Depends(BlogManager),
 ) -> SimpleBlogPost:
-    blog_posts = manager.get_all_posts(session)
-    return blog_posts
+
+    blog_post = manager.get_post_by_id(post_id, session)
+    if blog_post is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Post not found"
+        )
+    blog_post = manager.delete_post(post_id, session)
+    return blog_post
