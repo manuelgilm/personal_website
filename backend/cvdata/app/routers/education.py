@@ -50,6 +50,7 @@ def get_certification_by_id(
         )
     return certification
 
+
 @educ_router.delete("/delete/{cert_id}", status_code=status.HTTP_200_OK)
 def delete_certification_by_id(
     cert_id: UUID,
