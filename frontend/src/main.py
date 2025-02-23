@@ -5,7 +5,7 @@ from components.router import router
 from functools import partial
 
 def main(page:ft.Page):
-    page.title= "Routes Example"
+    page.title= "Anki-like APP"
     page.theme = ft.Theme(
         page_transitions=ft.PageTransitionsTheme(
             windows=ft.PageTransitionTheme.NONE
